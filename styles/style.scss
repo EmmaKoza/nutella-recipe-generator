@@ -1,0 +1,599 @@
+//PARTIALS
+
+
+@import "setup";
+
+// VARIABLES
+
+//COLOURS
+
+
+
+$cream: #FFFAEE;
+$nutella:#5C2C1F;
+$brightPink:#EC41B0;
+$orange:#E86E17;
+$blue:#5D64EF;
+$pink:  #f6AFEF;
+
+
+//FONT FAMILY
+
+$reenie: 'Reenie Beanie', cursive;
+$playfair: 'Playfair Display', serif;
+
+
+// BASE STYLES
+
+html{
+	font-size: 62.5%;
+}
+
+body{
+	font-size: 1.2rem;
+	font-family: $playfair;
+	background: $cream;
+}
+
+.container{
+	max-width: 1080px;
+	margin:0 auto;
+}
+
+//FRONT PAGE STYLES
+.frontPage{
+	background-color: $cream;
+}
+.frontPageWrapper{
+	max-width:1080px;
+	margin:0  auto;
+	height:100vh;
+	position:relative;
+	h1{
+		text-align: center;
+		color: $nutella;
+		background: $orange;
+		padding:2rem;
+		width:100%;
+	}
+	h3{
+		text-align: center;
+		color:$orange;
+		font-size: 2rem;
+		letter-spacing: 2px;	
+	}
+	
+	p.ournames{
+		color: darken($nutella, 10%);
+		font-size: 1.8rem;
+		text-align: center;
+		a{
+			color: $brightPink;
+			text-decoration: none;
+			visited:none;
+		}
+	}
+	footer{
+		margin:0;
+		margin-top: 4rem;
+		background: $brightPink;
+		padding-top: 4rem;
+		width:100%;	
+		position:absolute;
+		bottom:0;
+		display:flex;
+		justify-content:space-between;
+		flex-direction:row;
+		p{
+			color:darken($nutella,10%);
+			display:inline-block;
+			margin:0;
+			padding:10px;
+			// width:50%;
+		}
+		a{
+			color:$cream;
+			text-decoration: none;
+
+		}
+	}
+
+}
+
+.jar{
+	width:20%;
+	margin: auto;
+	display:block;
+
+}
+
+
+// GENERALQUESTIONAIRE STYLES
+
+h1,
+h2{
+	font-family: $reenie;
+}
+h1{
+	font-size: 7rem;
+}
+h2.question-title{
+	font-size: 10rem;
+	transform: rotate(-12deg);
+	text-align: center;
+	display:inline-block;
+
+}
+input[type=radio]{
+	display:none;
+}
+fieldset{
+	border:none;
+	height:100vh;
+	margin:0;
+}
+
+label{
+	font-size: 3rem;
+	display:inline-block;
+	text-align: center;
+	padding-bottom:1rem;
+		position: relative;
+		bottom: 0;
+		transition: all .5s ease;
+	.little{
+		font-size: 1.5rem;
+		font-weight: bold;
+		text-align: center;
+		letter-spacing: .5px;
+	}
+}
+
+span.scroll-nav__heading {
+    display: none;
+ }
+ ol.scroll-nav__list {
+    list-style: none;
+    margin: 0;
+    position: fixed;
+    right:50px;
+    top:20%;
+    li{
+    	padding: 0;
+    	margin:0;
+    }
+    a{
+    	text-decoration: none;
+    	font-size: 7rem;
+    	padding: 0;
+    	margin: 0;
+    	color: $orange;
+
+    }
+}
+
+nav .active a {
+	color: $brightPink;
+}
+
+// COOKING TIME STYLES
+
+.cookingTime{
+	background: $cream;
+	h2{
+
+		color: $nutella;
+	}
+	label{
+		color: $nutella;
+		// margin: 2%;
+		text-align: center;
+		width:30%;
+
+		.little{
+			color:$orange;
+	
+		}
+		&:hover{
+			border-bottom: 7px solid darken($brightPink, 10%);
+			bottom:25px;
+		}
+		&:focus{
+		    border-bottom: 7px solid darken($brightPink, 10%);
+		    bottom:25px;
+		}
+		img{
+			width:37%; 
+			display: block;
+			margin:0 auto;
+			fill:$blue;
+		}
+	}
+
+	.cookingTimeQuestions{
+		display:flex;
+		justify-content:space-around;
+		align-items:center;
+	}
+	
+	input[type='radio']:checked + label{
+		border-bottom: 7px solid darken($brightPink, 10%);
+		bottom:25px;
+		
+	}
+}
+
+//SKILL LEVEL STYLES
+.skillLevel{
+		background-color: $nutella;
+		
+	h2{
+		transform: rotate(-12deg);
+		text-align: center;
+		display:inline-block;
+		color:$cream;
+	}
+	.skillLevelQuestions{
+		display:flex;
+		justify-content:space-around;
+		align-items:center;
+	}
+
+	label{
+		color: $brightPink;
+		width:27%; 
+		.little{
+			color:$cream;
+		}
+		img{
+			width:40%;
+			display:block;
+			margin: 0 auto;
+		}	
+		&:hover,
+		&:focus{
+		border-bottom: 7px solid $orange;
+		bottom:25px;
+
+		}
+
+	}
+	input[type='radio']:checked + label{
+		border-bottom: 7px solid $orange;
+		bottom:25px;
+	}
+}
+
+
+//Flavour CHoice STYLES
+
+.flavourChoice{
+	background: $cream;
+ h2{
+ 	color: $nutella;
+
+ }
+ label{
+ 	color: darken($brightPink, 10%);
+ 	width:30%;
+ 	padding-bottom: 1rem;
+ 	.little{
+ 		color:$nutella;
+ 	}
+ 	&:hover,
+ 	&:focus{
+ 	border-bottom: 7px solid $orange;
+ 	bottom:25px;
+ 	}
+ 	img{
+ 		width:55%;
+ 		display:block;
+ 		margin:0 auto;
+ 	}
+ }
+ .flavourChoiceQuestions{
+ 	display:flex;
+ 	justify-content:space-around;
+ 	align-items:center;
+ }
+input[type='radio']:checked + label{
+	border-bottom: 7px solid $orange;
+	bottom:25px;
+}
+}
+
+
+//HEAVINESS CHOICE STYLES
+
+.heavinessChoice{
+	background: $nutella;
+ h2{
+ 	color: $cream;
+
+ }
+ label{
+ 	// border: 5px solid $darkBlue;
+ 	color: $orange;
+ 	width:30%;
+ 	padding-bottom: 1rem;
+ 	&:hover,
+ 	&:focus{
+ 		border-bottom: 7px solid $brightPink;
+ 		bottom:25px;
+ 	}
+ 	.little{
+ 		color:$cream;
+ 	}
+ }
+ .heavinessChoiceQuestions{
+ 	display:flex;
+ 	justify-content:space-around;
+ 	align-items:center;
+ }
+ img{
+ 	width:55%;
+ 	display:block;
+ 	margin:auto;
+ }
+input[type='radio']:checked + label{
+		border-bottom: 7px solid $brightPink;
+		bottom:25px;
+}
+}
+input[type='submit']{
+	border:none;
+	width:100%;
+	background:lighten($brightPink,5%);
+	color: darken($nutella,10%);
+	font-size: 8rem;
+	letter-spacing: 2px;
+	text-transform: capitalize;
+	padding: 5rem 0 5rem 0;
+	font-size: 4rem;
+	display:block;
+	transition: all 1s ease;
+}
+input[type='submit']:hover,
+input[type='submit']:focus,
+input[type='submit']:active{
+	background:$orange;
+}
+
+
+// BEST RECIPE STYLES
+
+.recipeContainer{
+	width:80%;
+	margin:0 auto;
+	h1{
+		text-align: center;
+		background-color: $nutella;
+		color:$cream;
+		padding: 1rem;
+		margin:1rem 0;
+		text-shadow: 2px 2px 2px black;
+	}
+	li{
+		font-size: 2rem;
+	}
+	.recipeIngredients,
+	.recipeSteps{
+		text-align: center;
+		font-size: 6rem; 
+	}
+
+	h2.recipeIngredients{
+		background: $orange;
+		color:$nutella;
+		padding:1rem;
+		margin:1rem 0;
+	}
+	.recipeSteps{
+		background:$brightPink;
+		color:$nutella;
+		padding:1rem;
+		margin: 1rem 0;
+	}
+
+	p{
+		font-family: $playfair;
+		font-size: 2rem;
+		padding:2rem;
+		background: $brightPink;
+		color: darken($nutella, 10%);
+		text-align: center;
+		margin:0;
+	}
+	
+	img{
+		width:100%;
+	}
+	.goBack{
+		width:40%;
+		margin:50px auto;
+		padding:2rem;
+		background:$nutella;
+		text-align: center;
+		border:3px solid $brightPink;
+		border-radius: 15px;
+		a{
+			color:$cream;
+			text-decoration: none;
+			text-align: center;
+			font-size: 2rem;
+			font-family: $playfair;
+		}
+	}
+}
+
+//MEDIA QUERIES
+
+@media (max-width: 940px){
+	 ol.scroll-nav__list {
+   		 right:20px;
+	}
+	h2.question-title{
+		font-size: 8rem;
+	}
+
+
+}
+@media (max-width: 850px){
+	.recipeContainer{
+		width:100%;
+		h1{
+			font-size: 7rem;
+		}
+	}
+}
+
+@media (max-width: 768px){
+	label{
+		font-size: 2.5rem;
+		.little{
+			font-size: 1.5rem;
+		}
+	}
+	input[type='submit']{
+		font-size: 3rem;
+		padding:2rem;
+	}
+	.recipeContainer{
+		width:100%;
+		h1{
+			font-size: 5rem;
+		}
+		h2.recipeIngredients,
+		h2.recipeSteps{
+			font-size: 4rem;
+		}
+	}
+}
+
+@media (max-width: 686px){
+	h2.question-title{
+		font-size: 6rem;
+	}
+	.cookingTimeQuestions,
+	.skillLevelQuestions,
+	.flavourChoiceQuestions,
+	.heavinessChoiceQuestions{
+		flex-wrap:wrap;
+	}
+
+	 ol.scroll-nav__list{
+		top:30%;
+		 a {
+			font-size: 5rem;
+		}
+	}
+	
+}
+
+@media (max-width:630px){
+	.cookingTimeQuestions,
+	.skillLevelQuestions,
+	.flavourChoiceQuestions,
+	.heavinessChoiceQuestions{
+		flex-direction:column;
+		label{
+			// width:50%;
+		}
+	}
+
+}
+
+@media (max-width:530px){
+	fieldset{
+		height:auto;
+	}
+	h2.question-title{
+		font-size: 5rem;
+	}
+	label{
+		width:100%;
+		font-size: 1.8rem;
+		.little{
+			font-size: 1rem;
+		}
+	}
+ 	
+ 	.cookingTimeQuestions label{
+ 		width:80%;
+ 	}
+ 	.skillLevelQuestions label{
+ 		width:80%;
+ 	}
+ 	.flavourChoiceQuestions label{
+ 		width:80%;
+ 	}
+ 	.heavinessChoiceQuestions label{
+ 		width:80%;
+ 	}
+
+ 	input[type='submit']{
+		font-size: 2rem;
+		padding:2rem;
+	}
+	.recipeContainer{
+		width:100%;
+		h1{
+			font-size: 5rem;
+		}
+		h2.recipeIngredients,
+		h2.recipeSteps{
+			font-size: 4rem;
+		}
+		li{
+			font-size: 1.8rem;
+		}
+		p.sorry{
+			font-size: 1.8rem;
+		}
+	}
+}
+
+@media (max-width: 480px){
+	 ol.scroll-nav__list{
+		top:40%;
+		 a {
+			font-size: 4rem;
+		}
+	}
+
+	.recipeContainer{
+		width:100%;
+		p.sorry{
+			font-size: 1.6rem;
+		}
+		h1{
+			font-size: 4rem;
+		}
+		h2.recipeIngredients,
+		h2.recipeSteps{
+			font-size: 3.3rem;
+		}
+		li{
+			font-size: 1.5rem;
+		}
+	}
+	
+}
+
+@media (max-width:350px){
+	 ol.scroll-nav__list{
+		 a {
+			font-size: 3rem;
+		}
+	}
+	
+}
+
+
+
+
+
+
+
+
+
