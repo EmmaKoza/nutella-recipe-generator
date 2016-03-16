@@ -5,6 +5,66 @@ $(function() {
 		arrowKeys:true
 	});
 
+	$('.frontPage').on('click', function(){
+		$(this).fadeOut();
+
+	});
+
+	$('.credit-load').on('click', function(){
+		$('.frontPage').fadeIn();
+	});
+
+	//an print object storing what we want to print
+
+	var whatYouWant = {
+		'time':{
+			less:'less than 10 minutes',
+			middle:'between 10 and 30 minutes',
+			more:'more than 30 minuts'
+		},
+		'difficulty':{
+			simple:'easy',
+			moderate:'intermediate',
+			hard:'challenging'
+		},
+		'flavour':{
+			fruity:'something fruity',
+			chocolatey:'something chocolatey'
+		},
+		'heaviness':{
+			rich:'rich',
+			light:'light'
+		}
+	}
+	//when radio button changed,set value to answerobject
+
+	// $('input[name="time"]').on('change',function(){
+	// 	var selectedTime = $(this).val();
+	// 	console.log(selectedTime);
+	// 	console.log(whatYouWant['time'][selectedTime]);
+
+	// 	var htmlString = 'I would like to make something that takes ' + whatYouWant['time'][selectedTime]+ ' to make,'
+		
+	// 	$('.output').html(htmlString);
+		// if (difficulty === moederate){
+		// 	$('.sentence').append('Intermediate')
+		// }
+	// })
+
+	//var choice = radiobutton.onchange{
+		// input.value
+	// }
+
+	// var print = whatYouWant.time.less
+
+	//print(print)
+
+	//if statements()
+
+	//print on the page.
+	//I wan something '10-20','fruity'
+	
+
 	// console.log(recipeCollection.['Crepes with Fruit and Nutella'])
 	$('.feedMe').on('click', function(e){ //listen for when the form's submit button is clicked
 		e.preventDefault(); // prevent default event (page refresh)
@@ -45,12 +105,12 @@ $(function() {
 
 			var htmlTitle = '<h1 class="recipeTitle">' + bestRecipe.title + '</h1>'
 			//create a variable to hold the ingredients as a UL to be printed on html
-			var htmlIngredients = '<h2 class="recipeIngredients">' + 'Ingredients Needed: ' + '</h2>' 
+			var htmlIngredients = '<div class="ingredient-wrapper">'+'<h2 class="recipeIngredients">' + 'Ingredients Needed: ' + '</h2>' 
 			 htmlIngredients += '<ul class="ingredientItems">'  //make a for loop to insert ingredients as list items 
 			 for(var i = 0; i < bestRecipe.ingredients.length; i ++){
 			 	htmlIngredients += '<li>' + bestRecipe.ingredients[i] + '</li>'	
 			 }
-			 htmlIngredients += '</ul>'
+			 htmlIngredients += '</ul>'+ '</div>' + '</div>'
 			 //create a variable to hold the recipe as a OL to be printed on html
 			 var htmlRecipe = '<h2 class="recipeSteps">' + 'Directions' + '</h2>'
 			 htmlRecipe += '<ol class="steps">' //make a for loop to insert recipe steps as list items
@@ -59,11 +119,11 @@ $(function() {
 			 }
 			 	htmlRecipe += '</ol>'
 
-			 var htmlImage = '<div class="imgWrapper">' + '<img src=' + bestRecipe.image + '>' + '</div>'
+			 var htmlImage = '<div class="ingredients-container">' + '<div class="imgWrapper">' + '<img src=' + bestRecipe.image + '>' + '</div>'
 
 			 var button = '<div class="goBack"><a href="questionaire.html">' + 'Try Again' + '</a></div>'
 
-			 var htmlResults = '<div class="recipeContainer">' + htmlTitle + htmlImage + htmlIngredients + htmlRecipe + button + '</div>'
+			 var htmlResults = '<div class="recipeContainer clearfix">' + htmlTitle + htmlImage + htmlIngredients + htmlRecipe + button + '</div>'
 				//print the required data to the page 
 				$('.discoverNutella').html(htmlResults)
 		} else if (filteredRecipes.length === 0){
@@ -77,12 +137,14 @@ $(function() {
 
 			var htmlTitle = '<h1 class="recipeTitle">' + bestRecipe.title + '</h1>'
 			//create a variable to hold the ingredients as a UL to be printed on html
-			var htmlIngredients = '<h2 class="recipeIngredients">' + 'Ingredients Needed: ' + '</h2>' 
+			
+			var htmlIngredients = '<div class="ingredient-wrapper">'+'<h2 class="recipeIngredients">' + 'Ingredients Needed: ' + '</h2>' 
 			 htmlIngredients += '<ul class="ingredientItems">'  //make a for loop to insert ingredients as list items 
 			 for(var i = 0; i < bestRecipe.ingredients.length; i ++){
 			 	htmlIngredients += '<li>' + bestRecipe.ingredients[i] + '</li>'	
 			 }
-			 htmlIngredients += '</ul>'
+			 htmlIngredients += '</ul>'+ '</div>' +'</div>'
+			 console.log(htmlIngredients)
 			 //create a variable to hold the recipe as a OL to be printed on html
 			 var htmlRecipe = '<h2 class="recipeSteps">' + 'Directions' + '</h2>'
 			 htmlRecipe += '<ol class="steps">' //make a for loop to insert recipe steps as list items
@@ -91,7 +153,7 @@ $(function() {
 			 }
 			 	htmlRecipe += '</ol>'
 
-			 var htmlImage = '<div class="imgWrapper">' + '<img src=' + bestRecipe.image + '>' + '</div>'
+			 var htmlImage = '<div class="ingredients-container">'+'<div class="imgWrapper">' + '<img src=' + bestRecipe.image + '>' + '</div>'
 
 			 var button = '<div class="goBack"><a href="questionaire.html">' + 'Try Again' + '</a></div>'
 

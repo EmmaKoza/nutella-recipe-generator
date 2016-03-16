@@ -70,29 +70,37 @@ legend, button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 
 
 html { font-size: 62.5%; }
 
-body { font-size: 1.2rem; font-family: "Playfair Display", serif; background: #FFFAEE; }
+body { font-size: 1.2rem; font-family: "Molengo", sans-serif; background: #FFFAEE; }
+
+form { margin: 0; }
 
 .container { max-width: 1080px; margin: 0 auto; }
 
-.frontPage { background-color: #FFFAEE; }
+.frontPage { background-color: #FFFAEE; position: fixed; top: 0; bottom: 0; right: 0; left: 0; z-index: 15; }
 
 .frontPageWrapper { max-width: 1080px; margin: 0  auto; height: 100vh; position: relative; }
 
-.frontPageWrapper h1 { text-align: center; color: #5C2C1F; background: #E86E17; padding: 2rem; width: 100%; }
+.frontPageWrapper h1 { text-align: center; color: #d16315; padding: 2rem; width: 100%; margin-top: 0; }
 
 .frontPageWrapper h3 { text-align: center; color: #E86E17; font-size: 2rem; letter-spacing: 2px; }
 
-.frontPageWrapper p.ournames { color: #361a12; font-size: 1.8rem; text-align: center; }
+.frontPageWrapper p.ournames, .frontPageWrapper p.credit { color: #361a12; font-size: 1.8rem; text-align: center; }
 
-.frontPageWrapper p.ournames a { color: #EC41B0; text-decoration: none; visited: none; }
+.frontPageWrapper p.ournames a, .frontPageWrapper p.credit a { color: #EC41B0; text-decoration: none; visited: none; }
 
-.frontPageWrapper footer { margin: 0; margin-top: 4rem; background: #EC41B0; padding-top: 4rem; width: 100%; position: absolute; bottom: 0; display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-justify-content: space-between; -ms-flex-pack: justify; justify-content: space-between; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; }
-
-.frontPageWrapper footer p { color: #361a12; display: inline-block; margin: 0; padding: 10px; }
-
-.frontPageWrapper footer a { color: #FFFAEE; text-decoration: none; }
+.frontPageWrapper p.credit { font-size: 1.2rem; }
 
 .jar { width: 20%; margin: auto; display: block; }
+
+.jar-wrapper { position: absolute; top: 50%; -webkit-transform: translateY(-50%); -ms-transform: translateY(-50%); transform: translateY(-50%); }
+
+.credit-load { position: absolute; padding: 2rem; }
+
+.credit-load:hover .creditP { opacity: 1; }
+
+.credit-load .jar { position: fixed; width: 50px; -webkit-transform: rotate(-15deg); -ms-transform: rotate(-15deg); transform: rotate(-15deg); transition: all .3s ease; z-index: 5; }
+
+.credit-load .creditP { color: #EC41B0; font-family: "Reenie Beanie", cursive; position: fixed; padding-left: 7rem; font-size: 3rem; opacity: 0; transition: all .3s ease; z-index: 5; }
 
 h1, h2 { font-family: "Reenie Beanie", cursive; }
 
@@ -188,25 +196,33 @@ input[type='submit'] { border: none; width: 100%; background: #ee58ba; color: #3
 
 input[type='submit']:hover, input[type='submit']:focus, input[type='submit']:active { background: #E86E17; }
 
-.recipeContainer { width: 80%; margin: 0 auto; }
+.recipeContainer { width: 80%; max-width: 850px; margin: 0 auto; }
 
 .recipeContainer h1 { text-align: center; background-color: #5C2C1F; color: #FFFAEE; padding: 1rem; margin: 1rem 0; text-shadow: 2px 2px 2px black; }
 
 .recipeContainer li { font-size: 2rem; }
 
-.recipeContainer .recipeIngredients, .recipeContainer .recipeSteps { text-align: center; font-size: 6rem; }
+.recipeContainer .ingredients-container { display: -webkit-flex; display: -ms-flexbox; display: flex; -webkit-align-items: center; -ms-flex-align: center; align-items: center; }
 
-.recipeContainer h2.recipeIngredients { background: #E86E17; color: #5C2C1F; padding: 1rem; margin: 1rem 0; }
+.recipeContainer .ingredient-wrapper { width: 100%; }
 
-.recipeContainer .recipeSteps { background: #EC41B0; color: #5C2C1F; padding: 1rem; margin: 1rem 0; }
+.recipeContainer .ingredientItems li { font-size: 1.7rem; color: #361a12; }
 
-.recipeContainer p { font-family: "Playfair Display", serif; font-size: 2rem; padding: 2rem; background: #EC41B0; color: #361a12; text-align: center; margin: 0; }
+.recipeContainer h2.recipeIngredients { color: #E86E17; font-size: 4.3rem; margin: 0; padding: 1rem; }
 
-.recipeContainer img { width: 100%; }
+.recipeContainer .recipeSteps { color: #EC41B0; padding: 1rem; margin: 1rem 0; clear: both; font-size: 4.3rem; }
 
-.recipeContainer .goBack { width: 40%; margin: 50px auto; padding: 2rem; background: #5C2C1F; text-align: center; border: 3px solid #EC41B0; border-radius: 15px; }
+.recipeContainer ol.steps li { font-size: 1.7rem; color: #361a12; }
 
-.recipeContainer .goBack a { color: #FFFAEE; text-decoration: none; text-align: center; font-size: 2rem; font-family: "Playfair Display", serif; }
+.recipeContainer p { font-family: "Molengo", sans-serif; font-size: 2rem; padding: 2rem; background: #EC41B0; color: #361a12; text-align: center; margin: 0; }
+
+.recipeContainer .img-wrapper { width: 50%; }
+
+.recipeContainer img { max-width: 100%; max-height: 100%; }
+
+.recipeContainer .goBack { width: 30%; display: block; margin: 50px auto; padding: 2rem; background: #EC41B0; text-align: center; color: #EC41b0; border: 3px solid #EC41B0; border-radius: 20px; }
+
+.recipeContainer .goBack a { color: #FFFAEE; text-decoration: none; text-align: center; font-size: 2rem; font-family: "Molengo", sans-serif; }
 
 @media (max-width: 940px) { ol.scroll-nav__list { right: 20px; }
   h2.question-title { font-size: 8rem; } }
@@ -220,6 +236,8 @@ input[type='submit']:hover, input[type='submit']:focus, input[type='submit']:act
   .recipeContainer { width: 100%; }
   .recipeContainer h1 { font-size: 5rem; }
   .recipeContainer h2.recipeIngredients, .recipeContainer h2.recipeSteps { font-size: 4rem; } }
+
+@media (max-width: 725px) { .ingredients-container { -webkit-flex-direction: column; -ms-flex-direction: column; flex-direction: column; } }
 
 @media (max-width: 686px) { h2.question-title { font-size: 6rem; }
   .cookingTimeQuestions, .skillLevelQuestions, .flavourChoiceQuestions, .heavinessChoiceQuestions { -webkit-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
@@ -250,5 +268,7 @@ input[type='submit']:hover, input[type='submit']:focus, input[type='submit']:act
   .recipeContainer h1 { font-size: 4rem; }
   .recipeContainer h2.recipeIngredients, .recipeContainer h2.recipeSteps { font-size: 3.3rem; }
   .recipeContainer li { font-size: 1.5rem; } }
+
+@media (max-width: 430px) { .recipeContainer .goBack { width: auto; } }
 
 @media (max-width: 350px) { ol.scroll-nav__list a { font-size: 3rem; } }

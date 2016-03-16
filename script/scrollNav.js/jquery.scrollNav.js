@@ -184,7 +184,6 @@
       var set_offset = function(section) {
         var $this_section  = $('#' + section.id);
         var this_height    = $this_section.height();
-
         section.top_offset    = $this_section.offset().top;
         section.bottom_offset = section.top_offset + this_height;
       };
